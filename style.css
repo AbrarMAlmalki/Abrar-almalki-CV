@@ -12,8 +12,7 @@
 
 /* ----- BACKGROUND IMAGE  ---- */
 body {
-   
-    background-image:  url('geometric-leaves.webp');
+    background-image: url('geometric-leaves.webp');
     background-repeat: repeat;           
     background-size: auto;               
     background-attachment: fixed;       
@@ -35,34 +34,46 @@ a {
     position: sticky;
     top: 0;
     z-index: 100;
-    background-color: rgba(60, 30, 80, 0.85); 
+    background-color: rgba(60, 30, 80, 0.95); 
     backdrop-filter: blur(6px);
     display: flex;
     align-items: center;
     padding: 0.7rem 2.5rem;
     border-bottom: 3px solid #cfa9e8;
     box-shadow: 0 6px 15px rgba(90, 40, 120, 0.25);
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 /* Profile image in header */
 .header-profile img {
     width: 48px;
     height: 48px;
-    border-radius: 50%;                 /* rounded image (bonus) */
+    border-radius: 50%;
     border: 3px solid #e7c6ff;
     margin-right: 2rem;
     transition: transform 0.2s ease, border-color 0.2s;
     object-fit: cover;
-      animation: borderAnimation 3s infinite;
+    animation: borderAnimation 3s infinite;
 }
 
-
+/* Remove hover on mobile */
+@media (min-width: 769px) {
+    .header-profile img:hover {
+        transform: scale(1.05);
+    }
+}
 
 /* Navigation bar */
+.navbar {
+    flex: 1;
+}
+
 .navbar ul {
     display: flex;
     list-style: none;
     gap: 2.5rem;
+    flex-wrap: wrap;
 }
 
 .navbar a {
@@ -73,11 +84,15 @@ a {
     transition: color 0.25s, border-bottom 0.25s;
     font-size: 1.2rem;
     letter-spacing: 0.3px;
+    display: inline-block;
 }
 
-.navbar a:hover {
-    color: #ffdcaa;                      
-    border-bottom-color: #deaaff;
+/* Desktop hover only */
+@media (min-width: 769px) {
+    .navbar a:hover {
+        color: #ffdcaa;                      
+        border-bottom-color: #deaaff;
+    }
 }
 
 .navbar a.active {
@@ -113,19 +128,22 @@ a {
     width: 150px;
     height: 150px;
     object-fit: cover;
-    border-radius: 50%;                       /* Rounded (bonus) */
+    border-radius: 50%;
     border: 4px solid #b47bd6;
     margin-bottom: 1.2rem;
     box-shadow: 0 8px 18px #d9b0f0;
     transition: border-color 0.4s;
-     animation: borderAnimation 3s infinite;
+    animation: borderAnimation 3s infinite;
 }
 
-.profile-pic-large:hover {
-    animation: borderColorChange 4s infinite;
+/* Desktop hover only */
+@media (min-width: 769px) {
+    .profile-pic-large:hover {
+        animation: borderColorChange 4s infinite;
+    }
 }
 
-/* Sidebar links (email, phone) */
+/* Sidebar links */
 .sidebar-left a {
     color: #4b2e5c;
     font-weight: 550;
@@ -134,9 +152,12 @@ a {
     transition: color 0.2s, transform 0.2s;
 }
 
-.sidebar-left a:hover {
-    color: #7e3f97;
-    transform: translateX(4px);
+/* Desktop hover only */
+@media (min-width: 769px) {
+    .sidebar-left a:hover {
+        color: #7e3f97;
+        transform: translateX(4px);
+    }
 }
 
 /* Email and phone icons */
@@ -145,7 +166,7 @@ a {
     color: #77559e;
 }
 
-/* ---------- SOCIAL MEDIA ICONS (X and LinkedIn) ---------- */
+/* ---------- SOCIAL MEDIA ICONS ---------- */
 .social-side {
     margin-top: 1.8rem;
     display: flex;
@@ -159,12 +180,15 @@ a {
     transition: all 0.2s ease-in-out;
 }
 
-.social-icon:hover {
-    color: #a05fc5;                        
-    transform: scale(1.25) rotate(2deg);
+/* Desktop hover only */
+@media (min-width: 769px) {
+    .social-icon:hover {
+        color: #a05fc5;                        
+        transform: scale(1.25) rotate(2deg);
+    }
 }
 
-/* ---------- FRAGMENT LINK (Requirement) ---------- */
+/* ---------- FRAGMENT LINK ---------- */
 .fragment-link-container {
     margin-top: 1.5rem;
 }
@@ -175,18 +199,21 @@ a {
     padding: 0.6rem 1rem;
     border-radius: 60px;
     font-size: 0.95rem;
-    border: 2px dotted #935eb9;                /* Dotted border */
+    border: 2px dotted #935eb9;
     font-weight: 700;
     display: inline-block;
     box-shadow: 0 3px 0 #b18bcf;
     transition: all 0.3s ease-in-out;
 }
 
-.fragment-link:hover {
-    background-color: #b58ad4;
-    color: #14081d !important;
-    box-shadow: 0 5px 0 #6f4791;
-    transform: translateY(-2px);
+/* Desktop hover only */
+@media (min-width: 769px) {
+    .fragment-link:hover {
+        background-color: #b58ad4;
+        color: #14081d !important;
+        box-shadow: 0 5px 0 #6f4791;
+        transform: translateY(-2px);
+    }
 }
 
 /* ------ MAIN CONTENT AREA ----- */
@@ -198,6 +225,7 @@ a {
     border-radius: 48px;
     box-shadow: 0 20px 40px rgba(105, 50, 140, 0.15);
     border: 1px solid #eeddff;
+    overflow-x: auto; /* Prevents content overflow */
 }
 
 /* ---------- HOME PAGE---------- */
@@ -217,7 +245,7 @@ a {
     font-size: 1.3rem;
 }
 
-/* ---------- ABOUT ME  (Requirement) ---------- */
+/* ---------- ABOUT ME ---------- */
 .about-card {
     background: rgba(235, 215, 250, 0.3);
     border-radius: 40px;
@@ -226,7 +254,6 @@ a {
     position: relative;                       
 }
 
-/* Decorative quotes using ::before and ::after on the card */
 .about-card::before {
     content: "“";
     font-size: 5rem;
@@ -251,7 +278,6 @@ a {
     z-index: 0;
 }
 
-/* First letter */
 .about-paragraph::first-letter {
     font-size: 4rem !important;
     font-weight: 800;
@@ -277,7 +303,7 @@ a {
     margin: 2.5rem 0;
 }
 
-.education, .skills,.projects-section {
+.education, .skills, .projects-section {
     flex: 1;
     background: #f7ecfe;
     padding: 1.5rem;
@@ -298,7 +324,8 @@ a {
 .skills li {
     margin: 0.5rem 0;
 }
-/* ---  PROJECTS SECTION  ------ */
+
+/* --- PROJECTS SECTION ------ */
 .projects-section {
     margin-top: 3rem;
     padding-top: 2rem;
@@ -310,7 +337,6 @@ a {
     font-size: 2rem;
     margin-bottom: 1.5rem;
 }
-
 
 .projects-section-card {
     background: #d4b0f0;      
@@ -335,10 +361,13 @@ a {
     transition: transform 0.2s ease;
 }
 
-.projects-list li:hover {
-    transform: translateX(8px);
-    color: #8b5faf;
-    border-bottom-color: #b58ad4;
+/* Desktop hover only */
+@media (min-width: 769px) {
+    .projects-list li:hover {
+        transform: translateX(8px);
+        color: #8b5faf;
+        border-bottom-color: #b58ad4;
+    }
 }
 
 .project-link-container {
@@ -360,11 +389,15 @@ a {
     box-shadow: 0 4px 0 #3b2550;
 }
 
-.project-folder-link:hover {
-    background-color: #8b5faf;
-    transform: translateY(-3px);
-    box-shadow: 0 7px 0 #4d2f63;
+/* Desktop hover only */
+@media (min-width: 769px) {
+    .project-folder-link:hover {
+        background-color: #8b5faf;
+        transform: translateY(-3px);
+        box-shadow: 0 7px 0 #4d2f63;
+    }
 }
+
 /* --------AVAILABILITY SECTION-------- */
 .availability-section {
     margin-top: 3rem;
@@ -408,6 +441,12 @@ a {
 }
 
 /* ---------- SCHEDULE PAGE----- */
+.table-wrapper {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: 24px;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
 
 .schedule-table, .courses-table {
     width: 100%;
@@ -423,11 +462,23 @@ a {
     color: #431f60;
     margin-top: 2.5rem;
 }
+
 .schedule-table th, .schedule-table td, 
 .courses-table th, .courses-table td {
     border: 1px solid #cfb0ec;
     padding: 14px 10px;
     text-align: left;
+    white-space: nowrap; /* Prevents text wrapping in table cells */
+}
+
+/* Allow text wrap on mobile for better readability */
+@media (max-width: 768px) {
+    .schedule-table th, .schedule-table td, 
+    .courses-table th, .courses-table td {
+        white-space: normal;
+        padding: 10px 8px;
+        font-size: 0.9rem;
+    }
 }
 
 .schedule-table thead, .courses-table thead {
@@ -435,7 +486,6 @@ a {
     color: #f3e5ff;
     font-size: 1.1rem;
 }
-
 
 .schedule-table tbody tr:nth-child(odd),
 .courses-table tbody tr:nth-child(odd) {
@@ -446,20 +496,21 @@ a {
     background-color: #ffffff;                
 }
 
-/*  HOVER EFFECTS for odd vs even rows  */
-.schedule-table tbody tr:nth-child(odd):hover,
-.courses-table tbody tr:nth-child(odd):hover {
-    background-color: #cbacf2;                 
-    color: #1d102b;
-    transition: 0.15s;
+/* Hover effects - desktop only */
+@media (min-width: 769px) {
+    .schedule-table tbody tr:nth-child(odd):hover,
+    .courses-table tbody tr:nth-child(odd):hover {
+        background-color: #cbacf2;                 
+        color: #1d102b;
+        transition: 0.15s;
+    }
+    
+    .schedule-table tbody tr:nth-child(even):hover,
+    .courses-table tbody tr:nth-child(even):hover {
+        background-color: #f2d5f2;                
+        color: #2d1a3a;
+    }
 }
-
-.schedule-table tbody tr:nth-child(even):hover,
-.courses-table tbody tr:nth-child(even):hover {
-    background-color: #f2d5f2;                
-    color: #2d1a3a;
-}
-
 
 .schedule-table th[rowspan] {
     background-color: #e5d0ff;
@@ -493,7 +544,6 @@ a {
     font-size: 1.1rem;
 }
 
-/* Form input styling */
 input[type="text"],
 input[type="email"],
 textarea {
@@ -517,7 +567,6 @@ textarea {
     resize: vertical;
 }
 
-
 .radio-group {
     display: flex;
     align-items: center;
@@ -538,7 +587,6 @@ textarea {
     margin-right: 1rem;
 }
 
-/* Submit button with hover  (bonus) */
 .submit-btn {
     background-color: #6a3c8c;
     border: none;
@@ -552,13 +600,16 @@ textarea {
     box-shadow: 0 5px 0 #3b2550;
 }
 
-.submit-btn:hover {
-    background-color: #8b5faf;                  
-    transform: scale(1.02) translateY(-3px);
-    box-shadow: 0 8px 0 #4d2f63;
+/* Desktop hover only */
+@media (min-width: 769px) {
+    .submit-btn:hover {
+        background-color: #8b5faf;                  
+        transform: scale(1.02) translateY(-3px);
+        box-shadow: 0 8px 0 #4d2f63;
+    }
 }
 
-/*FOOTER */
+/* FOOTER */
 footer {
     background: #341f47;                       
     color: #e1cef2;
@@ -570,10 +621,11 @@ footer {
     border-top: 3px solid #b18bcf;
 }
 
-/* -Media Queries-----*/
+/* Media Queries */
 @media (max-width: 900px) {
     .page-container {
         flex-direction: column;
+        padding: 0 1rem;
     }
     
     .sidebar-left {
@@ -592,26 +644,45 @@ footer {
     }
     
     .content-area {
-        padding: 2rem 1.5rem;
+        padding: 1.5rem;
     }
     
     .sticky-header {
         padding: 0.5rem 1rem;
+        flex-wrap: wrap;
     }
     
     .navbar ul {
         gap: 1rem;
         flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .navbar a {
+        font-size: 1rem;
+        padding: 0.3rem 0;
+    }
+    
+    .header-profile img {
+        margin-right: 1rem;
+        width: 40px;
+        height: 40px;
     }
 }
 
 @media (max-width: 550px) {
     .edu-skills {
         flex-direction: column;
+        gap: 1rem;
     }
     
     .name-title {
-        font-size: 2.2rem;
+        font-size: 2rem;
+    }
+    
+    .subhead {
+        font-size: 1.1rem;
+        padding-left: 1rem;
     }
     
     .radio-group {
@@ -619,10 +690,57 @@ footer {
         align-items: flex-start;
         gap: 0.5rem;
     }
+    
+    .projects-section-card {
+        padding: 1.5rem;
+    }
+    
+    .project-folder-link {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .schedule-table th, .schedule-table td {
+        padding: 8px 5px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Small phones */
+@media (max-width: 400px) {
+    .sticky-header {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .header-profile img {
+        margin-right: 0.5rem;
+    }
+    
+    .navbar ul {
+        justify-content: center;
+        gap: 0.8rem;
+    }
+    
+    .navbar a {
+        font-size: 0.9rem;
+    }
+    
+    .content-area {
+        padding: 1rem;
+        border-radius: 32px;
+    }
+    
+    .about-card {
+        padding: 1rem;
+    }
+    
+    .about-paragraph::first-letter {
+        font-size: 3rem !important;
+    }
 }
 
 /* ---------- BONUS ANIMATIONS ---------- */
-
 @keyframes borderAnimation {
     0% { border-color: #e8d6f0; }
     25% { border-color: #ad64cf; }
@@ -631,7 +749,6 @@ footer {
     100% { border-color: #110216; }
 }
 
-/* Button transitions (bonus) */
 button, .submit-btn, .fragment-link {
     transition: all 0.3s ease-in-out;
 }
