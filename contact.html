@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact · Abrar Almalki</title>
+    <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="sticky-header">
+        <div class="header-profile">
+            <img src="pfp.jpg" alt="profile" class="profile-pic">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">CV</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="page-container">
+        <aside class="sidebar-left">
+            <img src="pfp.jpg" alt="Abrar Murif" class="profile-pic-large bonus-round">
+          
+            <div class="contact-info-side">
+                <a href="mailto:aalmalky0057@stu.kau.edu.sa" class="email-link"><i class="fas fa-envelope"></i> abrar almalki</a>
+                <a href="tel:+966565234234" class="tel-link"><i class="fas fa-phone-alt"></i> +966 565234234</a>
+            </div>
+           
+            <div class="social-side">
+                 <a href="https://x.com/AbFCIT" target="_blank" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/abrar-almalki-b274a129b/" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+           
+        </aside>
+
+        <section class="content-area">
+            <h2>✉️ Contact me</h2>
+          
+
+            <form action="https://webhook.site/87a48648-ffe8-48aa-90ba-5fd5341f87e4" method="POST" class="contact-form">
+              
+                <input type="hidden" name="form-name" value="contact-abrar">
+
+                <div class="form-group">
+                    <label for="name">Name (required):</label>
+                    <input type="text" id="name" name="name" required placeholder="your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email (optional):</label>
+                    <input type="email" id="email" name="email" placeholder="@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message (textarea rows=10):</label>
+                    <textarea id="message" name="message" rows="10" required placeholder="write your message..."></textarea>
+                </div>
+
+                <div class="form-group radio-group">
+                    <span>Message type:</span>
+                    <label><input type="radio" name="msg_type" value="Inquiry" checked> Inquiry</label>
+                    <label><input type="radio" name="msg_type" value="Complaint"> Complaint</label>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="submit-btn">Send message </button>
+                </div>
+              
+               
+            </form>
+          
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Abrar · contact page ·</p>
+    </footer>
+</body>
+</html>
